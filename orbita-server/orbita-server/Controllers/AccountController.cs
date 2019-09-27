@@ -73,10 +73,9 @@ namespace orbita_server.Controllers
         }
 
         [HttpGet, Route("check")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        public async Task<IActionResult> Check(LoginViewModel model)
+        public string Check()
         {
-            return Ok("!");
+            return "!";
         }
     }
 }
