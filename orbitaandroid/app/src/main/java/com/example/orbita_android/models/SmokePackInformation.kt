@@ -8,7 +8,7 @@ package com.example.orbita_android.models
  * @param dayCycle -- количество дней.
  * @param packagesPerCycle -- количество пачек сигарет, выкуриваемых пользователем в dayCycle дней.
  */
-class UserInformation (
+class SmokePackInformation (
     var packageCost: Int,
     var dayCycle: Int,
     var packagesPerCycle: Int

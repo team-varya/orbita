@@ -12,8 +12,22 @@ class User(val username: String, var name: String) {
     /**
      * Успешно закрытые предыдущие цели.
      */
-    var previousGoals = mutableListOf<Goal>()
+    val previousGoals = mutableListOf<Goal>()
 
-    var information: UserInformation? = null
-    
+    var smokePackInformation: SmokePackInformation? = null
+
+    /**
+     * Добавляет информацию о невыкуренной пачке сигарет.
+     */
+    fun addPackage() {
+        smokePackInformation?.addPackage()
+        currentGoal?.addMoney(smokePackInformation?.packageCost ?: 0)
+
+        // текущая цель выполнена, заменяем её на null
+        if (currentGoal?.isFull == true) {
+            previousGoals.add(currentGoal!!)
+
+            currentGoal = null
+        }
+    }
 }

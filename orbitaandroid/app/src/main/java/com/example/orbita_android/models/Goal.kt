@@ -15,6 +15,8 @@ class Goal(
     var moneyPercentage: Float = moneyGoal.toFloat() / 100 * currentMoney
         private set
 
+    var isFull: Boolean = currentMoney >= moneyGoal
+
     fun addMoney(money: Int){
         currentMoney += money
     }
