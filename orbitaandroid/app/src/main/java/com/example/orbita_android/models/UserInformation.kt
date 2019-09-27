@@ -15,14 +15,23 @@ class UserInformation (
 ){
 
     /**
-     * Полная сумма денег, сэкономлеммая пользователем.
+     * Полная сумма денег, сэкономленная пользователем.
      */
     var fullCost: Int = 0
+        private set
+
+    var packageCounter: Int = 0
+        private set
+
+    var dayCycleToPackages: Float = dayCycle.toFloat() / packagesPerCycle
+        private set
 
     /**
      * Добавить неиспользованную пачку сигарет.
      */
     fun addPackage() {
+        packageCounter++
+        fullCost += packageCost
     }
 
 }
