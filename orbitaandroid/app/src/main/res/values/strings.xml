@@ -4,6 +4,8 @@
     <string name="tab_text_2">Tab 2</string>
     <string name="tab_text_3">Tab 3</string>
 
+    <string name="user_preference">user_preference</string>
+
     <string name="is_first_time">is_first_time</string>
     <!-- Ключи класса User -->
     <string name="user_name">user_name</string>
