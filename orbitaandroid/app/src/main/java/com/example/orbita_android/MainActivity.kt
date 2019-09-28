@@ -14,12 +14,12 @@ import android.widget.TextView
 class MainActivity : AppCompatActivity(), MainActivityPresenter.View {
 
     private val presenter: MainActivityPresenter = MainActivityPresenter(this)
-    // private val preference: SharedPreferences = this.getPreferences(Context.MODE_PRIVATE)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val preference: SharedPreferences = this.getPreferences(Context.MODE_PRIVATE)
+        val preference: SharedPreferences = this.getSharedPreferences(
+                                        getString(R.string.user_preference), Context.MODE_PRIVATE)
         val isFirstTime = preference.getBoolean("isFirstTime", true)
         if (isFirstTime) {
             setContentView(R.layout.login_layout)
@@ -37,7 +37,8 @@ class MainActivity : AppCompatActivity(), MainActivityPresenter.View {
     }
 
     override fun onDestroy() {
-        val preference: SharedPreferences = this.getPreferences(Context.MODE_PRIVATE)
+        val preference: SharedPreferences = this.getSharedPreferences(
+                                        getString(R.string.user_preference), Context.MODE_PRIVATE)
 
         addUserToPreference(preference)
 
@@ -45,7 +46,8 @@ class MainActivity : AppCompatActivity(), MainActivityPresenter.View {
     }
 
     override fun onStop() {
-        val preference: SharedPreferences = this.getPreferences(Context.MODE_PRIVATE)
+        val preference: SharedPreferences = this.getSharedPreferences(
+                                        getString(R.string.user_preference), Context.MODE_PRIVATE)
 
         addUserToPreference(preference)
 
