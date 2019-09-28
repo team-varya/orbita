@@ -17,17 +17,32 @@ class User(val username: String, var name: String) {
     var smokePackInformation: SmokePackInformation? = null
 
     /**
-     * Добавляет информацию о невыкуренной пачке сигарет.
+     * Попробовать заплатить за текущую (полную) пачку сигарет.
      */
-    fun addPackage() {
-        smokePackInformation?.addPackage()
-        currentGoal?.addMoney(smokePackInformation?.packageCost ?: 0)
+    fun tryBuyPackage () {
+        if (smokePackInformation != null) {
+            if (smokePackInformation!!.currentPackage != null) {
+                if (smokePackInformation!!.currentPackage!!.isFull) {
+                    currentGoal?.addMoney(smokePackInformation!!.packageCost)
 
-        // текущая цель выполнена, заменяем её на null
-        if (currentGoal?.isFull == true) {
-            previousGoals.add(currentGoal!!)
-
-            currentGoal = null
+                    smokePackInformation!!.tryBuyPackage()
+                }
+            }
         }
     }
+
+    /**
+     * Добавляет информацию о невыкуренной пачке сигарет.
+     */
+//    fun addPackage() {
+//        smokePackInformation?.addPackage()
+//        currentGoal?.addMoney(smokePackInformation?.packageCost ?: 0)
+//
+//        // текущая цель выполнена, заменяем её на null
+//        if (currentGoal?.isFull == true) {
+//            previousGoals.add(currentGoal!!)
+//
+//            currentGoal = null
+//        }
+//    }
 }

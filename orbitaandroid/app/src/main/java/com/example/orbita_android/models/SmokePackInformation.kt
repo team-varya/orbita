@@ -11,12 +11,13 @@ class SmokePackInformation (
     var dayCycle: Int,
     var packagesPerCycle: Int
 ){
-
     /**
      * Полная сумма денег, сэкономленная пользователем.
      */
     var fullCost: Int = 0
         private set
+
+    var currentPackage: CurrentPackage? = null
 
     var packageCounter: Int = 0
         private set
@@ -25,11 +26,31 @@ class SmokePackInformation (
         private set
 
     /**
-     * Добавить неиспользованную пачку сигарет.
+     * Добавить новую пачку сигарет.
      */
-    fun addPackage() {
+    fun changePackage() {
         packageCounter++
-        fullCost += packageCost
+
+        updatePackage()
+    }
+
+    /**
+     * Обновляет текущую пачку сигарет.
+     */
+    private fun updatePackage() {
+        currentPackage = CurrentPackage()
+    }
+
+    /**
+     * Попробовать заплатить за текущую пачку сигарет и обновить данные.
+     */
+    fun tryBuyPackage() {
+        if (currentPackage != null) {
+            if (currentPackage!!.isFull) {
+                // пачку сигарет купили, обновляем текущую пачку.
+                changePackage()
+            }
+        }
     }
 
 }
