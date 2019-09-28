@@ -1,5 +1,7 @@
 package com.example.orbita_android
 
+import com.example.orbita_android.models.Goal
+import com.example.orbita_android.models.SmokePackInformation
 import com.example.orbita_android.models.User
 
 /**
@@ -10,6 +12,14 @@ public class MainActivityPresenter (val view: View){
 
     fun setUserName(username: String) {
         user.username = username
+    }
+
+    fun setUserInfo(packageCost: Int, dayCycle: Int, packagesPerCycle: Int) {
+        user.smokePackInformation = SmokePackInformation(packageCost, dayCycle, packagesPerCycle)
+    }
+
+    fun setUserGoal(title: String, goalMoney: Int) {
+        user.currentGoal = Goal(title, goalMoney)
     }
 
     /**

@@ -9,7 +9,6 @@ class User{
     var username: String = ""
 
     var currentGoal: Goal? = null
-        private set
 
     /**
      * Успешно закрытые предыдущие цели.

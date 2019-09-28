@@ -24,6 +24,6 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@id/login_form"
         android:layout_below="@id/login_form"
-        android:onClick="setTabs"
+        android:onClick="onLogin"
         android:text="Войти"/>
 </RelativeLayout>
