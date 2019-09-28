@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Создание цели"
+        android:textSize="25sp"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentTop="true"/>
+
+    <LinearLayout
+        android:id="@+id/create_goal_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+        <EditText
+            android:id="@+id/goal_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Название" />
+        <EditText
+            android:id="@+id/goal_money"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Сумма" />
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/create_goal_form"
+        android:layout_below="@id/create_goal_form"
+        android:text="Создать цель"
+        android:onClick="onCreatedGoal" />
+
+</RelativeLayout>

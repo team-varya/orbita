@@ -1,0 +1,45 @@
+</LinearLayout>
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Информация"
+        android:textSize="25sp"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentTop="true"/>
+
+    <LinearLayout
+        android:id="@+id/add_information_form"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <EditText
+            android:id="@+id/package_cost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Стоимость пачки" />
+        <EditText
+            android:id="@+id/package_per_cycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Количество пачек" />
+        <EditText
+            android:id="@+id/day_cycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Количество дней" />
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/add_information_form"
+        android:layout_below="@id/add_information_form"
+        android:text="Сохранить"
+        android:onClick="onAddedInfo" />
+</RelativeLayout>

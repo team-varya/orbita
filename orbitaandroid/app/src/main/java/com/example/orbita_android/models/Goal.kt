@@ -1,5 +1,23 @@
 package com.example.orbita_android.models
 
-class Goal(val title: String, val moneyGoal: Int) {
+/**
+ * Определяет цель пользователя.
+ * @property title -- загаловок цели
+ * @property moneyGoal -- необходимое количество денег на исполнение цели.
+ */
+class Goal(
+    val title: String,
+    val moneyGoal: Int
+) {
     var currentMoney = 0
+        private set
+
+    var moneyPercentage: Float = moneyGoal.toFloat() / 100 * currentMoney
+        private set
+
+    var isFull: Boolean = currentMoney >= moneyGoal
+
+    fun addMoney(money: Int){
+        currentMoney += money
+    }
 }
