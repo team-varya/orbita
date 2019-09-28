@@ -1,7 +1,5 @@
 package com.example.orbita_android.models
 
-
-
 /**
  * Информация о пользователе.
  * @param packageCost -- стоимость пачки сигарет.
