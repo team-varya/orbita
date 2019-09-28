@@ -76,6 +76,9 @@ class MainActivity : AppCompatActivity(), MainActivityPresenter.View {
         val moneyGoal = findViewById<EditText>(R.id.goal_money).text.toString().toInt()
         presenter.setUserGoal(title, moneyGoal)
 
+        val preference: SharedPreferences = this.getSharedPreferences(
+            getString(R.string.user_preference), Context.MODE_PRIVATE)
+        addUserToPreference(preference)
         setTabs(presenter.user.username)
     }
 
@@ -88,12 +91,6 @@ class MainActivity : AppCompatActivity(), MainActivityPresenter.View {
         viewPager.adapter = fragmentAdapter
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
-
-        val packageCountTextView = findViewById<TextView>(R.id.package_count)
-        packageCountTextView.append(presenter.user.smokePackInformation!!.packageCounter.toString())
-
-        val currentMoanyeTextView = findViewById<TextView>(R.id.money)
-        currentMoanyeTextView.append(presenter.user.smokePackInformation!!.fullCost.toString())
     }
 
     private fun initUserFromPreference(preference: SharedPreferences) {
