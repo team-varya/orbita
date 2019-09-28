@@ -8,6 +8,10 @@ import com.example.orbita_android.models.User
 public class MainActivityPresenter (val view: View){
     private val user: User = User()
 
+    fun setUserName(username: String) {
+        user.username = username
+    }
+
     /**
      * Здесь хронятся методы, которые должны реализовываться во view.
      */

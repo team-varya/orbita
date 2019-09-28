@@ -8,6 +8,9 @@ import androidx.viewpager.widget.ViewPager
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.EditText
+import android.widget.TextView
 import com.example.orbita_android.ui.main.SectionsPagerAdapter
 
 class MainActivity : AppCompatActivity(), MainActivityPresenter.View {
@@ -16,7 +19,16 @@ class MainActivity : AppCompatActivity(), MainActivityPresenter.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.login_layout)
+    }
+
+    fun setTabs(view: View) {
+        var login= findViewById<EditText>(R.id.login).text.toString()
+        presenter.setUserName(login)
         setContentView(R.layout.activity_main)
+
+        val title: TextView = findViewById(R.id.title)
+        title.text = login
         val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
         val viewPager: ViewPager = findViewById(R.id.view_pager)
         viewPager.adapter = sectionsPagerAdapter

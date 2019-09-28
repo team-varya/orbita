@@ -6,8 +6,7 @@ package com.example.orbita_android.models
  * @property name -- по такому имени приложение будет обращаться к пользователю.
  */
 class User{
-    val username: String = ""
-    val name: String = ""
+    var username: String = ""
 
     var currentGoal: Goal? = null
         private set
