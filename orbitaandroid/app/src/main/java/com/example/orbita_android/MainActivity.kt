@@ -10,7 +10,9 @@ import android.view.Menu
 import android.view.MenuItem
 import com.example.orbita_android.ui.main.SectionsPagerAdapter
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainActivityPresenter.View {
+
+    private val presenter: MainActivityPresenter = MainActivityPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
