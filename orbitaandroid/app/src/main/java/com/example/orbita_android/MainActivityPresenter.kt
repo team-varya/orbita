@@ -8,7 +8,7 @@ import com.example.orbita_android.models.User
  * Добавляет бизнес-логику приложению.
  */
 public class MainActivityPresenter (val view: View){
-    private val user: User = User()
+    val user: User = User()
 
     fun setUserName(username: String) {
         user.username = username
@@ -16,6 +16,11 @@ public class MainActivityPresenter (val view: View){
 
     fun setUserInfo(packageCost: Int, dayCycle: Int, packagesPerCycle: Int) {
         user.smokePackInformation = SmokePackInformation(packageCost, dayCycle, packagesPerCycle)
+    }
+
+    fun setPackageInfo(packageCounter: Int, cigarettesNumber: Int) {
+        user.smokePackInformation?.packageCounter = packageCounter
+        user.smokePackInformation?.currentPackage?.countOfCigarettes = cigarettesNumber
     }
 
     fun setUserGoal(title: String, goalMoney: Int) {

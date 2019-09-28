@@ -20,7 +20,6 @@ class SmokePackInformation (
     var currentPackage: CurrentPackage? = null
 
     var packageCounter: Int = 0
-        private set
 
     var dayCycleToPackages: Float = dayCycle.toFloat() / packagesPerCycle
         private set
