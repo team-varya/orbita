@@ -17,14 +17,16 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/package_count"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Пачек сигарет не выкурено: 13"
+            android:text="Пачек сигарет не выкурено: "
             android:textSize="25sp" />
         <TextView
+            android:id="@+id/money"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Денег сэкономлено: 1300"
+            android:text="Денег сэкономлено: "
             android:textSize="25sp"/>
     </LinearLayout>
 </RelativeLayout>

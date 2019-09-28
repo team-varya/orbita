@@ -89,6 +89,11 @@ class MainActivity : AppCompatActivity(), MainActivityPresenter.View {
         val tabs: TabLayout = findViewById(R.id.tabs)
         tabs.setupWithViewPager(viewPager)
 
+        val packageCountTextView = findViewById<TextView>(R.id.package_count)
+        packageCountTextView.append(presenter.user.smokePackInformation!!.packageCounter.toString())
+
+        val currentMoanyeTextView = findViewById<TextView>(R.id.money)
+        currentMoanyeTextView.append(presenter.user.smokePackInformation!!.fullCost.toString())
     }
 
     private fun initUserFromPreference(preference: SharedPreferences) {
