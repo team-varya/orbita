@@ -4,6 +4,7 @@ package com.example.orbita_android.models
  * Информация о пачке сигарет.
  */
 class CurrentPackage {
+
     /**
      * Количество сигарет в пачке (пока захардкожено)
      */
@@ -15,7 +16,7 @@ class CurrentPackage {
      * Число сигарет в текущей пачке
      */
     var countOfCigarettes = 0
-        private set(value){
+        set(value){
             if (value >= cigarettesNumberInPack) {
                 // Нельзя иметь в пачке сигарет больше, чем пачка вмещает в себя
                 isFull = true
