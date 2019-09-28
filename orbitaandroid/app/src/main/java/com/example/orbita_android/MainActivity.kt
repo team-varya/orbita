@@ -44,6 +44,14 @@ class MainActivity : AppCompatActivity(), MainActivityPresenter.View {
         super.onDestroy()
     }
 
+    override fun onStop() {
+        val preference: SharedPreferences = this.getPreferences(Context.MODE_PRIVATE)
+
+        addUserToPreference(preference)
+
+        super.onStop()
+    }
+
     fun onLogin(view: View) {
         val login= findViewById<EditText>(R.id.login).text.toString()
         presenter.setUserName(login)
@@ -55,6 +63,8 @@ class MainActivity : AppCompatActivity(), MainActivityPresenter.View {
         val packageCost = findViewById<EditText>(R.id.package_cost).text.toString().toInt()
         val dayCycle = findViewById<EditText>(R.id.day_cycle).text.toString().toInt()
         val packagePerCycle = findViewById<EditText>(R.id.package_per_cycle).text.toString().toInt()
+        presenter.setUserInfo(packageCost, dayCycle, packagePerCycle)
+        presenter.user.smokePackInformation!!.changePackage()
 
         setContentView(R.layout.create_goal_layout)
     }
